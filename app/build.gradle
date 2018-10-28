@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.br.doglove"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary true
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    configurations {
+        all*.exclude group: 'com.android.support', module: 'support-v13'
+    }
+}
+
+dependencies {
+    def kotlinDependencies = rootProject.ext.kotlinDependencies
+    def supportDependencies = rootProject.ext.supportDependencies
+    def uiDependencies = rootProject.ext.uiDependencies
+    def networkDependencies = rootProject.ext.networkDependencies
+    def archDependencies = rootProject.ext.archDependencies
+    def testingDependencies = rootProject.ext.testingDependencies
+
+    // region Kotlin
+    implementation kotlinDependencies.stdlib
+    // endregion
+
+    // region Support libraries
+    implementation supportDependencies.appcompat
+    implementation supportDependencies.design
+    implementation supportDependencies.cardview
+    implementation supportDependencies.constraintLayout
+    implementation supportDependencies.supportFragment
+    // endregion
+
+    // region UI
+    implementation uiDependencies.lottie
+    implementation(uiDependencies.glide) {
+        exclude group: "com.android.support"
+    }
+    kapt uiDependencies.glideCompiler
+    // endregion
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // region Network
+    implementation firebaseDependencies.firebaseCore
+    implementation firebaseDependencies.firebaseStorage
+    implementation firebaseDependencies.firebaseAuth
+    implementation firebaseDependencies.firebaseFirestore
+    implementation firebaseDependencies.firebaseUI
+    // endregion
+
+    // region Network
+    implementation networkDependencies.okhttp
+    implementation networkDependencies.okio
+    implementation networkDependencies.loggingInterceptor
+    implementation networkDependencies.retrofit
+    implementation networkDependencies.retrofitRxJava2Adapter
+    implementation networkDependencies.retrofitConverterMoshi
+    // endregion
+
+    // region Architecture
+    implementation archDependencies.lifecycleExtensions
+    implementation archDependencies.rxAndroid
+    implementation archDependencies.dagger
+    implementation archDependencies.daggerAndroid
+    implementation archDependencies.daggerAndroidSupport
+    kapt archDependencies.daggerCompiler
+    kapt archDependencies.daggerAndroidProcessor
+    api archDependencies.javaxAnnotation
+    // endregion
+
+    // region Testing
+    testImplementation testingDependencies.junit
+    testImplementation testingDependencies.hamcrest
+    testImplementation testingDependencies.junit
+    testImplementation testingDependencies.mockito
+    testImplementation testingDependencies.mockWebServer
+    testImplementation testingDependencies.archComponents
+    androidTestImplementation testingDependencies.mockito
+    androidTestImplementation testingDependencies.supportTestRunner
+    androidTestImplementation testingDependencies.supportTestRules
+    androidTestImplementation testingDependencies.archComponents
+    androidTestImplementation testingDependencies.espressoCore
+    androidTestImplementation testingDependencies.espressoContrib
+    androidTestImplementation testingDependencies.espressoIntents
+    androidTestImplementation testingDependencies.espressoIdlingResource
+    // endregion
+}
+
+androidExtensions {
+    experimental = true
+}
+

@@ -1,0 +1,114 @@
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+ext {
+    // region Dependencies versions
+    appcompat_version = '28.0.0'
+    constraint_layout_version = '1.1.3'
+    espresso_version = '3.0.2'
+    junit_version = '4.12'
+    arch_components_version = '1.1.1'
+    room_version = '1.1.1'
+    test_runner_version = '1.0.2'
+    dagger_version = '2.11'
+    okhttp_version = '3.10.0'
+    retrofit_version = '2.4.0'
+    mockito_version = '2.19.0'
+    support_test_version = '1.0.2'
+    rxandroid_version = '2.0.1'
+    glide_version = '4.7.1'
+    moshi_version = '2.3.0'
+    lottie_version = '2.8.0'
+    anko_version = '0.10.7'
+    firebae_core_version = '16.0.4'
+    firebae_storage_version = '16.0.3'
+    firebae_auth_version = '16.0.5'
+    firebae_firestore_version = '17.1.1'
+    firebae_ui_version = '4.2.1'
+    // endregion
+
+    // region Kotlin
+    kotlinDependencies = [
+            stdlib    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    ]
+    // endregion
+
+    // region Support Library
+    supportDependencies = [
+            appcompat       : "com.android.support:appcompat-v7:$appcompat_version",
+            design          : "com.android.support:design:$appcompat_version",
+            cardview        : "com.android.support:cardview-v7:$appcompat_version",
+            supportFragment : "com.android.support:support-fragment:$appcompat_version",
+            constraintLayout: "com.android.support.constraint:constraint-layout:$constraint_layout_version",
+            ankoCommons    : "org.jetbrains.anko:anko-commons:$anko_version",
+            ankoDesign     : "org.jetbrains.anko:anko-design:$anko_version"
+    ]
+    // endregion
+
+    // region UI
+    uiDependencies = [
+            glide            : "com.github.bumptech.glide:glide:$glide_version",
+            glideCompiler    : "com.github.bumptech.glide:compiler:$glide_version",
+            lottie           : "com.airbnb.android:lottie:$lottie_version"
+
+    ]
+    // region
+
+    // region Network
+    networkDependencies = [
+            okhttp                : "com.squareup.okhttp3:okhttp:$okhttp_version",
+            loggingInterceptor    : "com.squareup.okhttp3:logging-interceptor:$okhttp_version",
+            okio                  : 'com.squareup.okio:okio:1.14.0',
+            retrofit              : "com.squareup.retrofit2:retrofit:$retrofit_version",
+            retrofitRxJava2Adapter: "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version",
+            retrofitConverterMoshi: "com.squareup.retrofit2:converter-moshi:$moshi_version"
+    ]
+    // endregion
+
+    // region Firebase
+    firebaseDependencies = [
+            firebaseCore       : "com.google.firebase:firebase-core:$firebae_core_version",
+            firebaseStorage    : "com.google.firebase:firebase-storage:$firebae_storage_version",
+            firebaseAuth       : "com.google.firebase:firebase-auth:$firebae_auth_version",
+            firebaseFirestore  : "com.google.firebase:firebase-firestore:$firebae_firestore_version",
+            firebaseUI         : "com.firebaseui:firebase-ui-auth:$firebae_ui_version",
+    ]
+    // endregion
+
+
+    // region Architecture
+    archDependencies = [
+            lifecycleExtensions   : "android.arch.lifecycle:extensions:$arch_components_version",
+            room                  : "android.arch.persistence.room:runtime:$room_version",
+            roomCompiler          : "android.arch.persistence.room:compiler:$room_version",
+            roomRxJava2           : "android.arch.persistence.room:rxjava2:$room_version",
+            dagger                : "com.google.dagger:dagger:$dagger_version",
+            daggerAndroid         : "com.google.dagger:dagger-android:$dagger_version",
+            daggerAndroidSupport  : "com.google.dagger:dagger-android-support:$dagger_version",
+            daggerCompiler        : "com.google.dagger:dagger-compiler:$dagger_version",
+            daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$dagger_version",
+            javaxAnnotation       : 'javax.annotation:jsr250-api:1.0',
+            rxAndroid             : "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    ]
+    // endregion
+
+    // region Testing
+    testingDependencies = [
+            junit                 : 'junit:junit:4.1.2',
+            supportTestRunner     : "com.android.support.test:runner:$support_test_version",
+            supportTestRules      : "com.android.support.test:rules:$support_test_version",
+            mockito               : "org.mockito:mockito-android:$mockito_version",
+            mockWebServer         : "com.squareup.okhttp3:mockwebserver:$okhttp_version",
+            hamcrest              : 'org.hamcrest:hamcrest-library:1.3',
+            archComponents        : "android.arch.core:core-testing:$arch_components_version",
+            espressoCore          : "com.android.support.test.espresso:espresso-core:$espresso_version",
+            espressoContrib       : "com.android.support.test.espresso:espresso-contrib:$espresso_version",
+            espressoIntents       : "com.android.support.test.espresso:espresso-intents:$espresso_version",
+            espressoIdlingResource: "com.android.support.test.espresso:espresso-idling-resource:$espresso_version"
+    ]
+    // endregion
+}

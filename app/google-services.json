@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "178001060530",
+    "firebase_url": "https://doglove-4907d.firebaseio.com",
+    "project_id": "doglove-4907d",
+    "storage_bucket": "doglove-4907d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178001060530:android:a903dc25b76aac8b",
+        "android_client_info": {
+          "package_name": "com.br.doglove"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178001060530-t1s7ob2a11f7avcb5dog1rdrt3d212cv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.br.doglove",
+            "certificate_hash": "6639ba292ec60ba55dc033d3618efbca8eac9cba"
+          }
+        },
+        {
+          "client_id": "178001060530-afibqkd8748t4uta0ca3ukavijrd63k4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdPKpm4iyfXb2-B-CITrrwH5SAQoDYEpY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178001060530-afibqkd8748t4uta0ca3ukavijrd63k4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
