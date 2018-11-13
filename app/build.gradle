@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -55,15 +56,17 @@ dependencies {
     // endregion
 
     // region UI
-    implementation uiDependencies.lottie
     implementation(uiDependencies.glide) {
         exclude group: "com.android.support"
     }
     kapt uiDependencies.glideCompiler
     // endregion
+
+    implementation "org.jetbrains.anko:anko-commons:0.10.7"
+    implementation "org.jetbrains.anko:anko-design:0.10.7"
     implementation 'com.android.support:multidex:1.0.3'
 
-    // region Network
+    // region Firebase
     implementation firebaseDependencies.firebaseCore
     implementation firebaseDependencies.firebaseStorage
     implementation firebaseDependencies.firebaseAuth
@@ -112,4 +115,3 @@ dependencies {
 androidExtensions {
     experimental = true
 }
-
