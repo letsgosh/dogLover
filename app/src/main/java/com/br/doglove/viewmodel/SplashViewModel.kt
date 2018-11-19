@@ -8,13 +8,10 @@ import com.google.firebase.auth.FirebaseAuth
 import javax.inject.Inject
 
 
-class SplashViewModel
-@Inject constructor
-(
-        private val firebaseAuth: FirebaseAuth
-) : ViewModel() {
+class SplashViewModel @Inject constructor(firebaseAuth: FirebaseAuth) : ViewModel() {
 
     val user = MutableLiveData<Boolean>()
+
     init {
         user.value = firebaseAuth.currentUser != null
     }

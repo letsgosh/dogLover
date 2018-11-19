@@ -4,6 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.br.doglove.commons.ViewModelFactory
 import com.br.doglove.di.ViewModelKey
+import com.br.doglove.viewmodel.DetailViewModel
+import com.br.doglove.viewmodel.FavoritesViewModel
+import com.br.doglove.viewmodel.HomeViewModel
 import com.br.doglove.viewmodel.SplashViewModel
 import dagger.Binds
 import dagger.Module
@@ -21,4 +24,19 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SplashViewModel::class)
     abstract fun bindSplashViewModel(splashViewModel: SplashViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun bindHomeViewModel(homeViewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(FavoritesViewModel::class)
+    abstract fun bindFavoritesViewModel(favoritesViewModel: FavoritesViewModel): ViewModel
+
+//    @Binds
+//    @IntoMap
+//    @ViewModelKey(DetailViewModel::class)
+//    abstract fun bindDetailViewModel(detailViewModel: DetailViewModel): ViewModel
 }

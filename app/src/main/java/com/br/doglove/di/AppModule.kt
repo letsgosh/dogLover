@@ -2,13 +2,14 @@ package com.br.doglove.di
 
 import android.app.Application
 import android.content.Context
-import android.content.SharedPreferences
-import android.preference.PreferenceManager
+import androidx.room.Database
+import androidx.room.DatabaseView
+import androidx.room.Room
 import com.br.doglove.DogLoveApplication
+import com.br.doglove.data.AppDatabase
 import com.br.doglove.sharedpreferences.Prefs
 import com.br.travelapp.di.module.NetworkModule
 import com.br.travelapp.di.module.ViewModelModule
-import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.gson.Gson
@@ -40,8 +41,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideFirebaseDatabase(): FirebaseFirestore {
-        val firebaseDatabase = FirebaseFirestore.getInstance()
-        return firebaseDatabase
+        return FirebaseFirestore.getInstance()
     }
 
     @Provides
@@ -49,6 +49,14 @@ class AppModule {
     fun provideFirebaseAuth(): FirebaseAuth {
         return FirebaseAuth.getInstance()
     }
+
+
+    @Provides
+    @Singleton
+    internal fun providesAppDatabase(application: Application): AppDatabase =
+            Room.databaseBuilder(application, AppDatabase::class.java, "petlovers.db").build()
+
+
 
 //    @Singleton
 //    fun provideAnalyticsHelper(context: Context): AnalyticsInterface {

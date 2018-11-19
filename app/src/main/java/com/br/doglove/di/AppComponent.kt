@@ -15,15 +15,4 @@ import javax.inject.Singleton
 interface AppComponent : AndroidInjector<DogLoveApplication> {
     @Component.Builder
     abstract class Builder : AndroidInjector.Builder<DogLoveApplication>()
-
-
-//    fun context(): Context
-//    fun app(): DogLoveApplication
-//    fun gson(): Gson
-//    fun firebaseStore(): BuildActivityModule
-//    fun firebaseAuth(): FirebaseAuth
-//    fun analyticsHelper(): AnalyticsInterface
-//    fun configHelper(): ConfigInterface
-//    fun taskReminderHelper(): TaskReminderInterface
-//    fun prefs(): Prefs
 }

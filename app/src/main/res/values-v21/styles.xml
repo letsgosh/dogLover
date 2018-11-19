@@ -5,4 +5,10 @@
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
+
+
+    <style name="AppTheme.DrawStatusBar" parent="AppTheme.NoActionBar" />
+
+    <style name="AppTheme.DrawStatusBar.Explode" parent="AppTheme.DrawStatusBar" />
+
 </resources>

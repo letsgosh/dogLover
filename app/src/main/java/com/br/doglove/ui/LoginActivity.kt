@@ -11,6 +11,7 @@ import androidx.annotation.VisibleForTesting
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import com.br.doglove.R
+import com.br.doglove.commons.BaseActivity
 import com.br.doglove.ktx.obtainViewModel
 import com.br.doglove.viewmodel.LoginViewModel
 import com.br.doglove.viewmodel.SplashViewModel
@@ -24,14 +25,13 @@ import org.jetbrains.anko.newTask
 import javax.inject.Inject
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private val RC_SIGN_IN = 123
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        AndroidInjection.inject(this)
 
         sign_in_button.setOnClickListener {
             startActivityForResult(

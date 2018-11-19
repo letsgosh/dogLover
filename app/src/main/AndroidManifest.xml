@@ -27,7 +27,11 @@
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:theme="@style/AppTheme.DrawStatusBar.Explode"></activity>
     </application>
 
 </manifest>

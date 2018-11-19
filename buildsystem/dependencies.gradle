@@ -75,7 +75,8 @@ ext {
             firebaseStorage    : "com.google.firebase:firebase-storage:$firebae_storage_version",
             firebaseAuth       : "com.google.firebase:firebase-auth:$firebae_auth_version",
             firebaseFirestore  : "com.google.firebase:firebase-firestore:$firebae_firestore_version",
-            firebaseUI         : "com.firebaseui:firebase-ui-auth:$firebae_ui_version"
+            firebaseUI         : "com.firebaseui:firebase-ui-auth:$firebae_ui_version",
+            firebaseFirestoreUI: "com.firebaseui:firebase-ui-firestore:$firebae_ui_version"
     ]
     // endregion
 

@@ -59,12 +59,20 @@ dependencies {
     implementation(uiDependencies.glide) {
         exclude group: "com.android.support"
     }
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
+    implementation 'com.google.android.material:material:1.0.0-alpha1'
     kapt uiDependencies.glideCompiler
     // endregion
 
     implementation "org.jetbrains.anko:anko-commons:0.10.7"
     implementation "org.jetbrains.anko:anko-design:0.10.7"
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'androidx.core:core-ktx:1.0.1'
+    implementation 'androidx.fragment:fragment-ktx:1.1.0-alpha01'
+    implementation "androidx.room:room-runtime:2.1.0-alpha02"
+    kapt "androidx.room:room-compiler:2.1.0-alpha02"
 
     // region Firebase
     implementation firebaseDependencies.firebaseCore
@@ -72,6 +80,7 @@ dependencies {
     implementation firebaseDependencies.firebaseAuth
     implementation firebaseDependencies.firebaseFirestore
     implementation firebaseDependencies.firebaseUI
+    implementation firebaseDependencies.firebaseFirestoreUI
     // endregion
 
     // region Network

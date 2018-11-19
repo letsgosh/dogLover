@@ -8,11 +8,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.fragment.app.transaction
 import com.br.doglove.R
+import com.br.doglove.commons.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +49,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
+     when (item.itemId) {
             R.id.action_settings -> return true
             else -> return super.onOptionsItemSelected(item)
         }
@@ -59,22 +58,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
+            R.id.nav_home -> {
+                supportFragmentManager.transaction(allowStateLoss = true) {
+                    replace(R.id.content, HomeFragment())
+                }
             }
-            R.id.nav_gallery -> {
+            R.id.nav_favorites -> {
+                supportFragmentManager.transaction(allowStateLoss = true) {
+                    replace(R.id.content, FavoritesFragment())
+                }
+            }
+            R.id.nav_search-> {
 
             }
-            R.id.nav_slideshow -> {
+            R.id.nav_notification -> {
 
             }
-            R.id.nav_manage -> {
+            R.id.nav_contacts -> {
 
             }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
+            R.id.nav_about -> {
 
             }
         }
