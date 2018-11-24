@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.br.doglove.R
 import com.br.doglove.ktx.obtainViewModel
@@ -50,8 +49,6 @@ class HomeFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.home_favorites, container, false)
-        val llm = LinearLayoutManager(context)
-        v.pets_recycler.layoutManager = llm
         v.pets_recycler.adapter = petsAdapter
         subscribeToList()
         return v

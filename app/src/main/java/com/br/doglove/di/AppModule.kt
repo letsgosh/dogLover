@@ -2,8 +2,6 @@ package com.br.doglove.di
 
 import android.app.Application
 import android.content.Context
-import androidx.room.Database
-import androidx.room.DatabaseView
 import androidx.room.Room
 import com.br.doglove.DogLoveApplication
 import com.br.doglove.data.AppDatabase

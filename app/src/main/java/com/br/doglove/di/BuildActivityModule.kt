@@ -21,4 +21,10 @@ abstract class BuildActivityModule {
     @ContributesAndroidInjector
     internal abstract fun contributeDetailFragment(): DetailFragment
 
+    @ContributesAndroidInjector
+    internal abstract fun contributeNotificationFragment(): NotificationFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeContactFragment(): ContactFragment
+
 }

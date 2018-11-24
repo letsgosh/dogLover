@@ -16,11 +16,6 @@ open class BaseActivity : AppCompatActivity(), ConnectivityReceiver.Connectivity
 
     val disposables = CompositeDisposable()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        AndroidInjection.inject(this)
-    }
-
     override fun onResume() {
         super.onResume()
 

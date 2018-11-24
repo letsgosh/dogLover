@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/os_photo_blink"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:visibility="invisible">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/osphoto_overlay_camera"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_transparent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/camera"
+            android:layout_marginBottom="@dimen/osphoto_margin_botton_image_view"/>
+
+        <TextView
+            android:id="@+id/osphoto_overlay_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/osphoto_message_befor_start_service"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="@dimen/osphoto_tittle_text_size"
+            />
+
+        <TextView
+            android:id="@+id/osphoto_overlay_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/osphoto_text_margin_top"
+            android:layout_marginRight="@dimen/osphoto_margin_bottom_image"
+            android:layout_marginLeft="@dimen/osphoto_margin_bottom_image"
+            android:textColor="@color/light_blue"
+            android:text="@string/osphoto_advertise"
+            />
+
+        <Button
+            android:id="@+id/osphoto_understand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/osphoto_size_image"
+            android:paddingLeft="@dimen/osphoto_size_image"
+            android:background="@drawable/button_light_blue_border"
+            android:layout_marginTop="@dimen/default_margin_image"
+            android:textColor="@color/white"
+            android:text="@string/osphoto_ok_understood"/>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/osphoto_bottom_bar"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/camera_preview"
+        android:background="@color/black_transparent">
+
+        <ImageView
+            android:id="@+id/osphoto_first_photo"
+            android:layout_width="@dimen/osphoto_size_image"
+            android:layout_height="@dimen/osphoto_size_image"
+            android:layout_marginTop="@dimen/osphoto_margin_top_image"
+            android:layout_marginBottom="@dimen/osphoto_margin_bottom_image"
+            android:layout_marginLeft="@dimen/osphoto_image_margin_left"
+            android:onClick="onOpenPhoto"
+            android:src="@drawable/empty_photo"
+            />
+
+        <ImageView
+            android:id="@+id/osphoto_delete_first_photo"
+            android:layout_width="@dimen/osphoto_image_size_delete"
+            android:layout_height="@dimen/osphoto_image_size_delete"
+            android:layout_marginTop="@dimen/osphoto_margin_top_image_close"
+            android:layout_marginLeft="@dimen/osphoto_image_close_margin_left"
+            android:layout_toRightOf="@+id/osphoto_first_photo"
+            android:src="@drawable/icon_remove"
+            android:onClick="onDeletePhoto"
+            android:visibility="invisible"
+            />
+
+        <ImageView
+            android:id="@+id/osphoto_second_photo"
+            android:layout_width="@dimen/osphoto_size_image"
+            android:layout_height="@dimen/osphoto_size_image"
+            android:layout_marginTop="@dimen/osphoto_margin_top_image"
+            android:layout_marginBottom="@dimen/osphoto_margin_bottom_image"
+            android:layout_marginLeft="@dimen/osphoto_image_margin_left"
+            android:onClick="onOpenPhoto"
+            android:layout_toRightOf="@+id/osphoto_first_photo"
+            android:src="@drawable/empty_photo"
+            />
+
+        <ImageView
+            android:id="@+id/osphoto_delete_second_photo"
+            android:layout_width="@dimen/osphoto_image_size_delete"
+            android:layout_height="@dimen/osphoto_image_size_delete"
+            android:layout_marginTop="@dimen/osphoto_margin_top_image_close"
+            android:layout_marginLeft="@dimen/osphoto_image_close_margin_left"
+            android:layout_toRightOf="@+id/osphoto_second_photo"
+            android:src="@drawable/icon_remove"
+            android:onClick="onDeletePhoto"
+            android:visibility="invisible"
+            />
+
+        <ImageView
+            android:id="@+id/osphoto_third_photo"
+            android:onClick="onOpenPhoto"
+            android:layout_width="@dimen/osphoto_size_image"
+            android:layout_height="@dimen/osphoto_size_image"
+            android:layout_marginTop="@dimen/osphoto_margin_top_image"
+            android:layout_marginBottom="@dimen/osphoto_margin_bottom_image"
+            android:layout_marginLeft="@dimen/osphoto_image_margin_left"
+            android:layout_toRightOf="@+id/osphoto_second_photo"
+            android:src="@drawable/empty_photo"
+            />
+
+        <ImageView
+            android:id="@+id/osphoto_delete_third_photo"
+            android:layout_width="@dimen/osphoto_image_size_delete"
+            android:layout_height="@dimen/osphoto_image_size_delete"
+            android:layout_marginTop="@dimen/osphoto_margin_top_image_close"
+            android:layout_marginLeft="@dimen/osphoto_image_close_margin_left"
+            android:layout_toRightOf="@+id/osphoto_third_photo"
+            android:src="@drawable/icon_remove"
+            android:onClick="onDeletePhoto"
+            android:visibility="invisible"
+            />
+
+        <Button
+            android:id="@+id/button_send_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/osphoto_send_photo"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="@dimen/osphoto_margin_top_image"
+            android:layout_marginRight="@dimen/osphoto_margin_horizontal_send"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/button_capture"
+        android:background="@drawable/ellipse_3"
+        android:layout_width="@dimen/osphoto_image_size_capture"
+        android:layout_height="@dimen/osphoto_image_size_capture"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/camera_preview"
+        android:layout_marginBottom="@dimen/osphoto_margin_bottom_capture"
+        android:visibility="invisible"
+        android:layout_gravity="center" />
+
+    <it.sephiroth.android.library.imagezoom.ImageViewTouch
+        android:id="@+id/osphoto_image_zoom"
+        android:background="@color/black"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/oshphoto_image_zoom_close"
+        android:layout_width="@dimen/osphoto_close_image_zoom_size"
+        android:layout_height="@dimen/osphoto_close_image_zoom_size"
+        android:layout_margin="@dimen/osphoto_close_image_zoom_margin"
+        android:visibility="invisible"
+        android:background="@drawable/ic_arrow_back"/>
+
+</RelativeLayout>
+
+

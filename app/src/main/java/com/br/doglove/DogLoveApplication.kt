@@ -1,10 +1,9 @@
 package com.br.doglove
 
-import android.app.Application
+import android.content.Intent
 import com.br.doglove.di.DaggerAppComponent
 import com.br.doglove.di.Injector
 import com.br.doglove.receiver.ConnectivityReceiver
-import com.br.doglove.sharedpreferences.Prefs
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 
@@ -22,6 +21,9 @@ class DogLoveApplication : DaggerApplication() {
         super.onCreate()
         Injector.init(this)
         instance = this
+
+        val locationService = Intent(this, LocationPetService::class.java)
+        startService(locationService)
     }
 
     fun setConnectivityListener(listener: ConnectivityReceiver.ConnectivityReceiverListener) {

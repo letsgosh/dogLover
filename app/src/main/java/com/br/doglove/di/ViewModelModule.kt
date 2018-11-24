@@ -4,10 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.br.doglove.commons.ViewModelFactory
 import com.br.doglove.di.ViewModelKey
-import com.br.doglove.viewmodel.DetailViewModel
-import com.br.doglove.viewmodel.FavoritesViewModel
-import com.br.doglove.viewmodel.HomeViewModel
-import com.br.doglove.viewmodel.SplashViewModel
+import com.br.doglove.viewmodel.*
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -34,6 +31,16 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(FavoritesViewModel::class)
     abstract fun bindFavoritesViewModel(favoritesViewModel: FavoritesViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(NotificationViewModel::class)
+    abstract fun bindNotificationViewModel(notificationViewModel: NotificationViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ContactViewModel::class)
+    abstract fun bindContactViewModel(contactViewModel: ContactViewModel): ViewModel
 
 //    @Binds
 //    @IntoMap

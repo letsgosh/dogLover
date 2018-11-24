@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filter_port">
+        <item>P</item>
+        <item>M</item>
+        <item>G</item>
+        <item>GG</item>
+    </string-array>
+
+    <string-array name="filter_type">
+        <item>Adoção</item>
+        <item>Evento</item>
+        <item>Perdido</item>
+    </string-array>
+</resources>

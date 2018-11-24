@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.AboutFragment">
+
+    <TextView
+        android:id="@+id/terms"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:onClick="openTerms"
+        android:tag="terms"
+        android:drawableEnd="@android:drawable/ic_media_play"
+        android:gravity="center_vertical"
+        android:text="Termos" />
+
+    <View
+        android:id="@+id/view_about"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/terms"
+        android:background="@color/colorAccent" />
+
+    <WebView
+        android:id="@+id/webview_about"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_about"
+        android:gravity="center_vertical"
+        android:text="Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+
+Porque nós o usamos?
+É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação. A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de
+
+
+    " />
+
+
+    <TextView
+        android:id="@+id/development"
+        android:layout_below="@id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Desenvolvido por: "/>
+
+    <ImageView
+        android:id="@+id/letsgo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:tag="letsgo"
+        android:layout_below="@id/development"
+        android:layout_centerHorizontal="true"
+        android:onClick="openTerms"
+        android:background="@mipmap/ic_launcher" />
+
+</RelativeLayout>

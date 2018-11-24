@@ -5,10 +5,12 @@ import android.graphics.Movie
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.br.doglove.R
 import com.br.doglove.R.id.name
 import com.br.doglove.model.Pets
+import com.br.doglove.ui.CreatePetActivity
 import com.br.doglove.ui.DetailActivity
 import com.br.doglove.ui.KEY_ACTIVITY_ARGS
 import com.bumptech.glide.Glide
