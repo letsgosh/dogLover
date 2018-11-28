@@ -43,6 +43,7 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = obtainViewModel(viewModelFactory, HomeViewModel::class.java)
+        subscribeToList()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +51,6 @@ class HomeFragment : Fragment() {
 
         val v = inflater.inflate(R.layout.home_favorites, container, false)
         v.pets_recycler.adapter = petsAdapter
-        subscribeToList()
         return v
 
     }

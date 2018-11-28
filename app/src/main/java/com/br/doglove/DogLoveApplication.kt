@@ -22,8 +22,6 @@ class DogLoveApplication : DaggerApplication() {
         Injector.init(this)
         instance = this
 
-        val locationService = Intent(this, LocationPetService::class.java)
-        startService(locationService)
     }
 
     fun setConnectivityListener(listener: ConnectivityReceiver.ConnectivityReceiverListener) {

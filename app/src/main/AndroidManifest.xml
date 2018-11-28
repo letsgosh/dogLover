@@ -37,7 +37,12 @@
             android:name=".ui.DetailActivity"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme.DrawStatusBar.Explode" />
+
         <activity android:name=".ui.CreatePetActivity" />
+
+        <activity android:name=".ui.PhotoActivity" />
+
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

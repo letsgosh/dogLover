@@ -7,8 +7,9 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Pets(
-        val id: Int,
-        val name: String,
+        var id: String,
+        var name: String,
         val year: String,
         val image: String
 ) : Parcelable
+

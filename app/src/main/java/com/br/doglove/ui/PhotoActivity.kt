@@ -40,7 +40,7 @@ import retrofit2.Response
 import java.util.*
 
 
-class OSPhotoActivity : AppCompatActivity() {
+class PhotoActivity : AppCompatActivity() {
 
     private var camera: Camera? = null
     private var cameraPreview: CameraPreview? = null
@@ -75,7 +75,7 @@ class OSPhotoActivity : AppCompatActivity() {
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         camera = cameraInstance
-        cameraPreview = CameraPreview(this, camera)
+        cameraPreview = CameraPreview(this, camera!!)
         loadMessage()
         val preview = findViewById<View>(R.id.camera_preview) as FrameLayout
         preview.addView(cameraPreview)
@@ -129,7 +129,7 @@ class OSPhotoActivity : AppCompatActivity() {
 
     fun presentPhotoToCameraSlot(cameraSlot: CameraSlot) {
         val bmp: Bitmap? = null
-        for (p in cameraSlot.photos) {
+        for (p in cameraSlot.photos!!) {
             if (p != null && !p.wasShowed()) {
                 when (p.position) {
                     CameraSlotEnum.FIRST -> showPhoto(p, osphoto_first_photo, osphoto_delete_first_photo, bmp)
@@ -142,7 +142,7 @@ class OSPhotoActivity : AppCompatActivity() {
 
     fun showPhotoZoom(p: Photo) {
         if (p.picture != null) {
-            val bmp = BitmapFactory.decodeFile(p.picture.absolutePath)
+            val bmp = BitmapFactory.decodeFile(p.picture!!.absolutePath)
 //            osphoto_image_zoom.image = bmp
             osphoto_image_zoom.visibility = View.VISIBLE
             oshphoto_image_zoom_close.visibility = View.VISIBLE
@@ -152,7 +152,7 @@ class OSPhotoActivity : AppCompatActivity() {
     private fun showPhoto(p: Photo, imageView: ImageView, closeImageView: ImageView, bmp: Bitmap?) {
         var bmp = bmp
         if (p.picture != null) {
-            bmp = BitmapFactory.decodeFile(p.picture.absolutePath)
+            bmp = BitmapFactory.decodeFile(p.picture!!.absolutePath)
             imageView.setImageBitmap(bmp)
             p.setWasShowed(true)
             closeImageView.visibility = View.VISIBLE
@@ -191,9 +191,9 @@ class OSPhotoActivity : AppCompatActivity() {
 
 
     fun sendPhotoToService(p: Photo, uri: Uri) {
-        val position = cameraSlot.photos.indexOf(p)
-        cameraSlot.photos[position].isUploaded = true
-        cameraSlot.photos[position].photoUri = uri
+        val position = cameraSlot.photos!!.indexOf(p)
+        cameraSlot.photos!![position].isUploaded = true
+        cameraSlot.photos!![position].photoUri = uri
 
         val wasAllPhotosUploaded = verifyWhetherAllPhotoIsUploadedToFirebase()
 
@@ -205,9 +205,11 @@ class OSPhotoActivity : AppCompatActivity() {
     private fun verifyWhetherAllPhotoIsUploadedToFirebase(): Boolean {
         val photos = this.cameraSlot.photos
         if (!Arrays.asList<Array<Photo>>(photos).isEmpty()) {
-            for (photo in photos) {
-                if (photo != null && !photo.isUploaded) {
-                    return false
+            if (photos != null) {
+                for (photo in photos) {
+                    if (photo != null && !photo.isUploaded) {
+                        return false
+                    }
                 }
             }
             return true
@@ -226,15 +228,15 @@ class OSPhotoActivity : AppCompatActivity() {
 
     fun changePhotoFromSlot(p: Photo, position: Int) {
         if (p.picture != null) {
-            p.path = p.picture.path
-            p.name = p.picture.name
+            p.path = p.picture!!.path
+            p.name = p.picture!!.name
         }
-        cameraSlot.photos[position] = p
+        cameraSlot.photos!![position] = p
         presentPhotoToCameraSlot(cameraSlot)
     }
 
     fun getPhotoPosition(p: Photo): Int {
-        return cameraSlot.photos.indexOf(p)
+        return cameraSlot.photos!!.indexOf(p)
     }
 
     fun failToUploadFirebase() {
@@ -248,8 +250,8 @@ class OSPhotoActivity : AppCompatActivity() {
     }
 
     fun getPhotoFromSlot(position: CameraSlotEnum) {
-        if (cameraSlot.photos != null && cameraSlot.photos[position.ordinal] != null) {
-            showPhotoZoom(cameraSlot.photos[position.ordinal])
+        if (cameraSlot.photos != null && cameraSlot.photos!![position.ordinal] != null) {
+            showPhotoZoom(cameraSlot.photos!![position.ordinal])
         }
     }
 

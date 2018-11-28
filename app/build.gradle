@@ -17,22 +17,20 @@ android {
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     configurations {
         all*.exclude group: 'com.android.support', module: 'support-v13'
     }
+    buildToolsVersion '28.0.3'
 }
 
 dependencies {
@@ -42,11 +40,9 @@ dependencies {
     def networkDependencies = rootProject.ext.networkDependencies
     def archDependencies = rootProject.ext.archDependencies
     def testingDependencies = rootProject.ext.testingDependencies
-
     // region Kotlin
     implementation kotlinDependencies.stdlib
     // endregion
-
     // region Support libraries
     implementation supportDependencies.appcompat
     implementation supportDependencies.design
@@ -54,7 +50,6 @@ dependencies {
     implementation supportDependencies.constraintLayout
     implementation supportDependencies.supportFragment
     // endregion
-
     // region UI
     implementation(uiDependencies.glide) {
         exclude group: "com.android.support"
@@ -66,17 +61,15 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
     kapt uiDependencies.glideCompiler
     // endregion
-
-    implementation "org.jetbrains.anko:anko-commons:0.10.7"
-    implementation "org.jetbrains.anko:anko-design:0.10.7"
+    implementation 'org.jetbrains.anko:anko-commons:0.10.7'
+    implementation 'org.jetbrains.anko:anko-design:0.10.7'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'androidx.core:core-ktx:1.0.1'
     implementation 'androidx.fragment:fragment-ktx:1.1.0-alpha01'
-    implementation "androidx.room:room-runtime:2.1.0-alpha02"
+    implementation 'androidx.room:room-runtime:2.1.0-alpha02'
     kapt "androidx.room:room-compiler:2.1.0-alpha02"
-    implementation 'com.google.android.gms:play-services-location:16.0.0'
-    implementation 'com.google.android.gms:play-services-maps:16.0.0'
-
+    //    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    //    implementation 'com.google.android.gms:play-services-maps:16.0.0'
     // region Firebase
     implementation firebaseDependencies.firebaseCore
     implementation firebaseDependencies.firebaseStorage
@@ -85,7 +78,6 @@ dependencies {
     implementation firebaseDependencies.firebaseUI
     implementation firebaseDependencies.firebaseFirestoreUI
     // endregion
-
     // region Network
     implementation networkDependencies.okhttp
     implementation networkDependencies.okio
@@ -94,7 +86,6 @@ dependencies {
     implementation networkDependencies.retrofitRxJava2Adapter
     implementation networkDependencies.retrofitConverterMoshi
     // endregion
-
     // region Architecture
     implementation archDependencies.lifecycleExtensions
     implementation archDependencies.rxAndroid
@@ -105,7 +96,6 @@ dependencies {
     kapt archDependencies.daggerAndroidProcessor
     api archDependencies.javaxAnnotation
     // endregion
-
     // region Testing
     testImplementation testingDependencies.junit
     testImplementation testingDependencies.hamcrest

@@ -20,7 +20,38 @@ class HomeViewModel @Inject constructor(firestore: FirebaseFirestore) : ViewMode
                 .get()
                 .addOnCompleteListener { it ->
                     if (it.isSuccessful) {
-                        pets.value = it.result as List<Pets>?
+                        var petList = ArrayList<Pets>()
+                        for (snapshot in it.result!!.documents) {
+                           petList.add(Pets(snapshot.id,
+                                    snapshot.getString("name")!!,
+                                    snapshot.getString("year")!!,
+                                    snapshot.getString("image")!!))
+                            petList.add(Pets(snapshot.id,
+                                    snapshot.getString("name")!!,
+                                    snapshot.getString("year")!!,
+                                    snapshot.getString("image")!!))
+                            petList.add(Pets(snapshot.id,
+                                    snapshot.getString("name")!!,
+                                    snapshot.getString("year")!!,
+                                    snapshot.getString("image")!!))
+                            petList.add(Pets(snapshot.id,
+                                    snapshot.getString("name")!!,
+                                    snapshot.getString("year")!!,
+                                    snapshot.getString("image")!!))
+                            petList.add(Pets(snapshot.id,
+                                    snapshot.getString("name")!!,
+                                    snapshot.getString("year")!!,
+                                    snapshot.getString("image")!!))
+                            petList.add(Pets(snapshot.id,
+                                    snapshot.getString("name")!!,
+                                    snapshot.getString("year")!!,
+                                    snapshot.getString("image")!!))
+                            petList.add(Pets(snapshot.id,
+                                    snapshot.getString("name")!!,
+                                    snapshot.getString("year")!!,
+                                    snapshot.getString("image")!!))
+                        }
+                        pets.value = petList
                     } else {
 
                     }

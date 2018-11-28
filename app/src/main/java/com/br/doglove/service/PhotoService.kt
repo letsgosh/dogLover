@@ -1,19 +1,15 @@
 package com.br.doglove.service
 
-import android.util.Log
-import androidx.annotation.NonNull
-import com.br.doglove.R
-import com.br.doglove.util.droid.camera.CameraUtil
-
 import java.io.File
 import java.io.FileInputStream
-import java.io.InputStream
-import java.util.ArrayList
-import java.util.Arrays
 
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.google.firebase.storage.FirebaseStorage
+import com.google.android.gms.tasks.Continuation
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.Task
+import com.google.firebase.storage.StorageException
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 
 
 class PhotoService {
@@ -23,9 +19,9 @@ class PhotoService {
         try {
 
             Thread.sleep(2000)
-            val photosRef = FirebaseStorage.getInstance()
-                    .getReferenceFromUrl(ApplicationBase.getAppContext().getString(R.string.firebase_storage_url))
-                    .child(ApplicationConstants.FIREBASE_PHOTO_DIRECTORY)
+            val storage = FirebaseStorage.getInstance("gs://doglove-4907d.appspot.com")
+            var storageRef = storage.reference
+            val photosRef = storageRef.child("photos")
 
             Thread.sleep(2000)
             val pictureRef = photosRef.child(photo.name)
@@ -34,17 +30,11 @@ class PhotoService {
 
             Thread.sleep(2000)
 
-            uploadTask.addOnFailureListener(object : OnFailureListener() {
-                fun onFailure(@NonNull exception: Exception) {
+            uploadTask.addOnFailureListener {
+            }.addOnSuccessListener {
 
-                }
-            }).addOnSuccessListener(object : OnSuccessListener<UploadTask.TaskSnapshot>() {
-                fun onSuccess(taskSnapshot: UploadTask.TaskSnapshot) {
-                    val uri = ArrayList<String>()
-                    uri.add(String.valueOf(taskSnapshot.getDownloadUrl()))
-                    sendPhotosUrl(photo, uri)
-                }
-            })
+            }
+
         } catch (exception: Exception) {
         }
 

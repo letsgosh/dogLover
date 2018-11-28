@@ -3,7 +3,6 @@ package com.br.doglove.receiver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.google.android.gms.location.LocationResult
 import java.util.HashMap
 
 
@@ -12,9 +11,9 @@ class LocationUpdatesReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val extras = intent.extras
         if (extras != null) {
-            val result = LocationResult.extractResult(intent)
+//            val result = LocationResult.extractResult(intent)
 //            if (result != null) {
-                val location = result.lastLocation
+//                val location = result.lastLocation
 //                ProfileManager.getInstance().setLocation(location)
 //                if (updateOffers) {
 //                    updateOffers = false

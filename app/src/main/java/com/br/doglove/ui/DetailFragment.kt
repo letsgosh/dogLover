@@ -37,7 +37,7 @@ class DetailFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.favorites_fragment, container, false)
+        val v = inflater.inflate(R.layout.fragment_detail, container, false)
         return v
     }
 

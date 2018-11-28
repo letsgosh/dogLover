@@ -43,6 +43,7 @@
                 android:text="Porte" />
 
             <RadioGroup
+                android:id="@+id/port_pet_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="28dp"
@@ -79,6 +80,7 @@
                 android:text="Tipo" />
 
             <RadioGroup
+                android:id="@+id/type_pet_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -117,6 +119,7 @@
                 android:id="@+id/next_crud_photos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="nextPhotos"
                 android:text="Fotos" />
         </LinearLayout>
     </ScrollView>

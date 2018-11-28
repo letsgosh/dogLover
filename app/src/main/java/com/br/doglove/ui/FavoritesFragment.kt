@@ -36,7 +36,6 @@ class FavoritesFragment : Fragment() {
         val v = inflater.inflate(R.layout.favorites_fragment, container, false)
         v.pager_favorites.offscreenPageLimit = 3
         v.pager_favorites.pageMargin = 20
-        subscribeToList()
         return v
 
     }
@@ -51,6 +50,7 @@ class FavoritesFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = obtainViewModel(viewModelFactory, FavoritesViewModel::class.java)
+        subscribeToList()
     }
 
 }

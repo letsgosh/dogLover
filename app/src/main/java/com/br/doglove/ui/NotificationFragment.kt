@@ -40,7 +40,6 @@ class NotificationFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.notification_fragment, container, false)
         v.notification_dog_love.adapter = notificationAdapter
-        subscribeToList()
         return v
     }
 
@@ -54,6 +53,7 @@ class NotificationFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = obtainViewModel(viewModelFactory, NotificationViewModel::class.java)
+        subscribeToList()
     }
 
 }

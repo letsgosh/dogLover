@@ -43,6 +43,7 @@ class ContactFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = obtainViewModel(viewModelFactory, ContactViewModel::class.java)
+        subscribeToList()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +51,6 @@ class ContactFragment : Fragment() {
 
         val v = inflater.inflate(R.layout.contact_fragment, container, false)
         v.contacts_recycler.adapter = contactsAdapter
-        subscribeToList()
         return v
 
     }

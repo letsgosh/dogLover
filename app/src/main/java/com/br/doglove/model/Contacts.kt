@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Contacts(
-        val id: Int,
+        val id: String,
         val name: String,
         val whatts: String,
         val phone: String,

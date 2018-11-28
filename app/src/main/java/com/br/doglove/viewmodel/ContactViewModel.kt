@@ -21,7 +21,19 @@ class ContactViewModel @Inject constructor(firestore: FirebaseFirestore) : ViewM
                 .get()
                 .addOnCompleteListener { it ->
                     if (it.isSuccessful) {
-                        contacts.value = it.result as List<Contacts>?
+
+                        var contactList = ArrayList<Contacts>()
+                        for (snapshot in it.result!!.documents) {
+                            contactList.add(Contacts(snapshot.id,
+                                    snapshot.getString("name")!!,
+                                    snapshot.getString("whatts")!!,
+                                    snapshot.getString("email")!!,
+                                    snapshot.getString("site")!!,
+                                    snapshot.getString("image")!!
+                            ))
+                        }
+
+                        contacts.value = contactList
                     } else {
 
                     }
