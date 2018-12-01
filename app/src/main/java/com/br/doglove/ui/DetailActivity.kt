@@ -11,6 +11,7 @@ import com.br.doglove.ktx.obtainViewModel
 import com.br.doglove.model.Pets
 import com.br.doglove.viewmodel.DetailViewModel
 import com.br.doglove.viewmodel.SplashViewModel
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_detail.*
 import javax.inject.Inject
 
@@ -18,9 +19,10 @@ const val KEY_ACTIVITY_ARGS = "KEY_ACTIVITY_ARGS"
 
 class DetailActivity : BaseActivity() {
 
-//    @Inject
-//    @VisibleForTesting
-//    lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    @VisibleForTesting
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
     private lateinit var viewModel: DetailViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +34,8 @@ class DetailActivity : BaseActivity() {
                     .setAction("Action", null).show()
         }
 
-//        AndroidInjection.inject(this)
-//        viewModel = obtainViewModel(viewModelFactory, DetailViewModel::class.java)
+        AndroidInjection.inject(this)
+        viewModel = obtainViewModel(viewModelFactory, DetailViewModel::class.java)
 
 
         if (savedInstanceState == null) {

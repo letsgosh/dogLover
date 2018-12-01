@@ -13,15 +13,16 @@ import com.br.doglove.ktx.obtainViewModel
 import com.br.doglove.model.Pets
 import com.br.doglove.viewmodel.DetailViewModel
 import com.br.doglove.viewmodel.FavoritesViewModel
+import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 const val KEY_ARGS = "KEY_ARGS"
 
 class DetailFragment : Fragment() {
 
-//    @Inject
-//    @VisibleForTesting
-//    lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    @VisibleForTesting
+    lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var viewModel: DetailViewModel
 
     companion object {
@@ -33,7 +34,8 @@ class DetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        AndroidSupportInjection.inject(this)
+        AndroidSupportInjection.inject(this)
+        viewModel = obtainViewModel(viewModelFactory, DetailViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -43,7 +45,6 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        viewModel = obtainViewModel(viewModelFactory, DetailViewModel::class.java)
 
 //        setupRecyclerView()
     }

@@ -42,8 +42,8 @@ abstract class ViewModelModule {
     @ViewModelKey(ContactViewModel::class)
     abstract fun bindContactViewModel(contactViewModel: ContactViewModel): ViewModel
 
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(DetailViewModel::class)
-//    abstract fun bindDetailViewModel(detailViewModel: DetailViewModel): ViewModel
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailViewModel::class)
+    abstract fun bindDetailViewModel(detailViewModel: DetailViewModel): ViewModel
 }

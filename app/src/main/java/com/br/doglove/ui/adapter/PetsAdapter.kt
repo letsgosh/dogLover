@@ -55,6 +55,9 @@ class PetsAdapter : RecyclerView.Adapter<PetsAdapter.ViewHolder>() {
                         .into(image_pet)
 
                 setOnClickListener {
+//                    DetailsActivity::class.java, args, RQ_DETAILS,
+//                    selectedMovie.posterView, R.string.shared_transition_details_poster)
+                    startActivity(intentFor<DetailActivity>("reference" to pets.id))
                 }
             }
         }

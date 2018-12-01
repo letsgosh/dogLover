@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.RadioButton
 import androidx.fragment.app.FragmentActivity
 import com.br.doglove.R
+import com.br.doglove.model.Pets
 import com.br.doglove.model.PetsCrud
 import com.google.type.LatLng
 import org.jetbrains.anko.intentFor
@@ -30,8 +31,7 @@ class CreatePetActivity : FragmentActivity() {
     }
 
     fun nextPhotos(view: View) {
-        PetsCrud(name_crud_pet.text.toString(),
-                yaer_crud_pet.text.toString(),
+        PetsCrud(desc_crud_pet.text.toString(),
                 desc_crud_pet.text.toString(),
                 port,
                 type,
